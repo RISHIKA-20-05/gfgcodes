@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<int> findMajority(vector<int>& arr) {
+        unordered_map<int, int> map;
+        vector<int> ans;
+        int n = arr.size();
+
+        for (int num : arr) {
+            map[num]++;
+        }
+
+        for (auto& entry : map) {
+            if (entry.second > n / 3) {
+                ans.push_back(entry.first);
+            }
+        }
+
+        return ans;
+    }
+};
